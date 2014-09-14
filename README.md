@@ -27,7 +27,7 @@ Running `$('.parent').find('.hello')` on the above markup will return all five i
 
 ```javascript
 var hellos = $('.parent').findSafe('.hello', '.ignore-me');
-// -> returns for instances of hello
+// -> returns four instances of hello
 ```
 
 `$.findSafe` works with arbitrarily nested elements. A more complex example:
