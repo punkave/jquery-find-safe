@@ -21,7 +21,7 @@ Run a query selector, but ignore matches nested within specific elements.
 
 Running `$('.parent').find('.hello')` on the above markup will return all five instances of hello. We could use some tricky css-style selecting to isolate the four instances of `.hello` that aren't inside of `.ignore-me`, but that can be unreliable (and unreadable).
 
-### `$.findSafe(selector, ignore)`
+### Solution: `$.findSafe(selector, ignore)`
 
 `$.findSafe` runs the `$.find` function but ignores any matches within a second selector. Using the example above:
 
