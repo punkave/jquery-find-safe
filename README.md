@@ -56,11 +56,11 @@ var hellos = $('.parent').findSafe('.hello', '.ignore-me');
 
 ## About P'unk Avenue and Apostrophe
 
-`jquery-projector` was created at [P'unk Avenue](http://punkave.com) for use in Apostrophe, an open-source content management system built on node.js. If you like `jquery-projector` you should definitely [check out apostrophenow.org](http://apostrophenow.org). Also be sure to visit us on [github](http://github.com/punkave).
+`jquery-find-safe` was created at [P'unk Avenue](http://punkave.com) for use in Apostrophe, an open-source content management system built on node.js. If you like `jquery-find-safe` you should definitely [check out apostrophenow.org](http://apostrophenow.org). Also be sure to visit us on [github](http://github.com/punkave).
 
 ## Support
 
-Feel free to open issues on [github](http://github.com/punkave/jquery-projector).
+Feel free to open issues on [github](http://github.com/punkave/jquery-find-safe).
 
 
 <a href="http://punkave.com/"><img src="https://raw.github.com/punkave/jquery-projector/master/logos/logo-box-builtby.png" /></a>
