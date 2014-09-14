@@ -1,5 +1,7 @@
 # `jquery.findSafe`
 
+Run a query selector, but ignore matches nested within specific elements.
+
 <a href="http://apostrophenow.org/"><img src="https://raw.github.com/punkave/jquery-projector/master/logos/logo-box-madefor.png" align="right" /></a>
 
 **Problem**: I want to select all elements that match `.hello`, but not if `.hello` is inside of `.ignore-me`.
