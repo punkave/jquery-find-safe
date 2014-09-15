@@ -1,6 +1,6 @@
 # `jquery.findSafe`
 
-Run a query selector, but ignore matches nested within specific elements.
+Run a query selector, but ignore matches nested within specific elements. Helps you cope with nested controls.
 
 <a href="http://apostrophenow.org/"><img src="https://raw.github.com/punkave/jquery-projector/master/logos/logo-box-madefor.png" align="right" /></a>
 
