@@ -1,45 +1,45 @@
 # `jquery.findSafe`
 
-Run a query selector, but ignore matches nested within specific elements. Helps you cope with nested controls.
+Run a query selector, but ignore matches nested within specific elements beneath the original element. Helps you cope with nested controls.
 
 <a href="http://apostrophenow.org/"><img src="https://raw.github.com/punkave/jquery-projector/master/logos/logo-box-madefor.png" align="right" /></a>
 
-**Problem**: I want to select all elements that match `.hello`, but not if `.hello` is inside of `.ignore-me`.
+**Problem**: I want to select all elements *inside* a div of class `nifty` that match `.hello`, but not if they are nested inside *another* div of class `nifty`.
 
 ```html
-<div class="parent">
+<div class="nifty outer">
   <div class="hello"></div>
   <div class="hello"></div>
   <div class="hello"></div>
   <div class="hello"></div>
 
-  <div class="ignore-me">
+  <div class="nifty">
     <div class="hello"></div>
   </div>
 </div>
 ```
 
-Running `$('.parent').find('.hello')` on the above markup will return all five instances of hello. We could use some tricky css-style selecting to isolate the four instances of `.hello` that aren't inside of `.ignore-me`, but that can be unreliable (and unreadable).
+Running `$('.nifty.outer').find('.hello')` on the above markup will return all five instances of hello. If we try to solve this by using `:not` in a naive way, it will reject everything, because the original div also has the class `nifty`.
 
 ### Solution: `$.findSafe(selector, ignore)`
 
-`$.findSafe` runs the `$.find` function but ignores any matches within a second selector. Using the example above:
+`$.findSafe` runs the `$.find` function but ignores any deeper matches of a second selector. Using the example above:
 
 ```javascript
-var hellos = $('.parent').findSafe('.hello', '.ignore-me');
+var hellos = $('.nifty.outer').findSafe('.hello', '.nifty');
 // -> returns four instances of hello
 ```
 
 `$.findSafe` works with arbitrarily nested elements. A more complex example:
 
 ```html
-<div class="parent">
+<div class="nifty outer">
   <div class="hello"></div>
   <div class="hello"></div>
   <div class="hello"></div>
   <div class="hello"></div>
 
-  <div class="ignore-me">
+  <div class="nifty">
     <div>
       <div>
         <div>
@@ -52,9 +52,11 @@ var hellos = $('.parent').findSafe('.hello', '.ignore-me');
 </div>
 ```
 
-`$('.parent').findSafe('.hello', '.ignore-me')` still returns only the first four `.hello`s.
+`$('.nifty.outer').findSafe('.hello', '.nifty')` still returns only the first four `.hello`s.
 
 ## Changelog
+
+0.1.2: clarified documentation re: only rejecting matches of the second selector *beneath* the original element.
 
 0.1.1: much simpler implementation, thanks to [kachitta](https://github.com/kachitta). Also added a unit test in `test.html`.
 
