@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+   <title>Test jquery.findSafe</title>
+    <style type="text/css">
+      th, td {
+        padding: 5px;
+        border: 1px dotted #ccc;
+      }
+    </style>
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="jquery.findsafe.js"></script>
+<ul class="outer">
+  <li class="one">One</li>
+  <li class="two">Two</li>
+  <li class="three">Three
+    <ul class="inner">
+      <li class="one">One</li>
+      <li class="two">Two</li>
+      <li class="three">Three</li>
+    </ul>
+  </li>
+</ul>
+<table class="results">
+  <tr><th>Test</th><th>Result</th></tr>
+  <tr><th>Nesting</th><td data-test="nesting"></td></tr>
+</table>
+<script type="text/javascript">
+  var tests = {
+    nesting: function() {
+      // Verify we find the .three in the original ul,
+      // and do not find the .three in the nested ul
+      var $found = $('.outer').findSafe('.three', 'ul');
+      return ($found.length === 1);
+    }
+  };
+  $.each(tests, function(name, test) {
+    var result = test();
+    var $output = $('[data-test="' + name + '"]');
+    $output.text(result ? 'PASS' : 'FAIL');
+  });
+</script>
+</body>
+</html>
