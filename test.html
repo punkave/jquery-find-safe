@@ -29,6 +29,13 @@
   <tr><th>Nesting</th><td data-test="nesting"></td></tr>
 </table>
 <script type="text/javascript">
+  // Alternative vesion that currently fails the test due to
+  // being too greedy going back up the DOM tree
+  //
+  // jQuery.fn.findSafe = function(selector, ignore) {
+  //   return this.find(selector).not(jQuery(ignore).find(selector));
+  // };
+
   var tests = {
     nesting: function() {
       // Verify we find the .three in the original ul,
