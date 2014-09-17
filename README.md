@@ -54,6 +54,10 @@ var hellos = $('.parent').findSafe('.hello', '.ignore-me');
 
 `$('.parent').findSafe('.hello', '.ignore-me')` still returns only the first four `.hello`s.
 
+## Changelog
+
+0.1.1: much simpler implementation, thanks to [kachitta](https://github.com/kachitta). Also added a unit test in `test.html`.
+
 ## About P'unk Avenue and Apostrophe
 
 `jquery-find-safe` was created at [P'unk Avenue](http://punkave.com) for use in Apostrophe, an open-source content management system built on node.js. If you like `jquery-find-safe` you should definitely [check out apostrophenow.org](http://apostrophenow.org). Also be sure to visit us on [github](http://github.com/punkave).
